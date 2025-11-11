@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Local Waste Management</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f6fbf7;
+      --card:#ffffff;
+      --muted:#6b7280;
+      --accent:#2f855a;
+      --accent-2:#38a169;
+      --shadow: 0 10px 30px rgba(14,30,37,0.08);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Inter',sans-serif;background:linear-gradient(180deg,var(--bg),#eef7ef 60%);color:#0f172a;overflow-x:hidden}
+    .container{max-width:1100px;margin:0 auto;padding:48px 24px}
+    header{display:flex;justify-content:space-between;align-items:center;margin-bottom:30px}
+    .logo{display:flex;align-items:center;gap:10px;font-weight:700;color:var(--accent)}
+    nav a{margin:0 12px;text-decoration:none;color:var(--muted);font-weight:600}
+    nav a:hover{color:var(--accent)}
+    .hero{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;margin-bottom:50px}
+    .hero img{width:100%;border-radius:16px;box-shadow:var(--shadow);animation:float 6s ease-in-out infinite}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+    .btn{padding:12px 18px;border:none;border-radius:10px;font-weight:700;cursor:pointer}
+    .btn-primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff}
+    .section{margin-bottom:60px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+    .card{background:var(--card);border-radius:12px;box-shadow:var(--shadow);overflow:hidden;transition:transform .3s}
+    .card:hover{transform:translateY(-6px)}
+    .card img{width:100%;height:200px;object-fit:cover}
+    .card-content{padding:16px}
+    .panel{background:var(--card);padding:24px;border-radius:14px;box-shadow:var(--shadow)}
+    input,textarea{width:100%;margin:10px 0;padding:10px;border:1px solid #ccc;border-radius:8px}
+    footer{text-align:center;color:var(--muted);margin-top:60px}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo"><img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" width="40" alt="logo">Local Waste</div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#tips">Tips</a>
+        <a href="#report">Report Waste</a>
+        
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div>
+        <h1>Keeping Our City Clean and Green</h1>
+        <p style="margin:20px 0;color:var(--muted)">Join hands with the local waste management program to reduce waste, promote recycling, and make our environment sustainable.</p>
+        
+      </div>
+      <img src="Picture+1.png" alt="Clean Environment">
+    </section>
+
+    <section id="gallery" class="section">
+      <h2>Local Waste Gallery</h2>
+      <p style="color:var(--muted);margin-bottom:20px">Snapshots from our community clean-up drives and recycling initiatives.</p>
+      <div class="grid">
+        <div class="card">
+          <img src="images.jpeg" alt="Waste Cleanup">
+          <div class="card-content">
+            <h3>Community Cleanup Drive</h3>
+            <p style="color:var(--muted)">Local volunteers cleaning up plastic waste in residential areas.</p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="Composting-waste.jpg" alt="Compost">
+          <div class="card-content">
+            <h3>Composting Unit</h3>
+            <p style="color:var(--muted)">Turning organic waste into compost for community gardens.</p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="Waste-Segregation-1024x398.png" alt="Segregation">
+          <div class="card-content">
+            <h3>Waste Segregation</h3>
+            <p style="color:var(--muted)">Citizens sorting waste into dry, wet, and recyclable materials.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tips" class="section">
+      <h2>Waste Management Tips</h2>
+      <div class="panel">
+        <ul style="color:var(--muted);line-height:1.8">
+          <li>Use three bins — dry, wet, and hazardous waste.</li>
+          <li>Compost organic waste at home or in your community.</li>
+          <li>Clean recyclables before disposal to prevent contamination.</li>
+          <li>Donate or recycle old electronics instead of discarding.</li>
+          <li>Say no to single-use plastics — use reusable containers.</li>
+        </ul>
+        <img src="JUL23_3_02-16-Sustainable-Zero-Waste-Tips-_5-Rs.avif" alt="Recycling Tips" style="width:100%;border-radius:12px;margin-top:20px">
+      </div>
+    </section>
+
+    <section id="report" class="section">
+      <h2>Report Waste</h2>
+      <p style="color:var(--muted);margin-bottom:20px">Help us keep the city clean by reporting uncollected or illegally dumped waste. Upload a photo and share the location.</p>
+      <div class="panel">
+        <form onsubmit="handleReport(event)">
+          <input type="text" id="reporterName" placeholder="Your Name" required>
+          <input type="email" id="reporterEmail" placeholder="Your Email" required>
+          <textarea id="wasteDetails" placeholder="Describe the waste location and type" required></textarea>
+          <input type="text" id="address" placeholder="Enter Address or Landmark" required>
+          <label style="color:var(--muted);font-weight:600">Upload Waste Image:</label>
+          <input type="file" id="wasteImage" accept="image/*" required>
+          <button class="btn btn-primary" type="submit">Submit Report</button>
+        </form>
+      </div>
+    </section>
+
+
+    <footer>
+      © <span id="year"></span> Local Waste — Building a cleaner future together.
+    </footer>
+  </div>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    function handleSubmit(e){
+      e.preventDefault();
+      alert('Thank you! Your message has been sent.');
+      e.target.reset();
+    }
+    function handleReport(e){
+      e.preventDefault();
+      alert('Your waste report has been submitted successfully!');
+      e.target.reset();
+    }
+  </script>
+</body>
+</html>
